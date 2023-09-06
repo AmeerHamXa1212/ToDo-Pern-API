@@ -10,4 +10,4 @@ const Port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(() => console.info(`Server is running at Port ${Port}`));
+app.listen(Port, () => console.info(`Server is running at Port ${Port}`));
