@@ -1,0 +1,21 @@
+create table user(
+    id int primary key auto_increment,
+    name varchar(20) not null
+)
+
+create table task(
+    tid int primary key auto_increment,
+    user_id INT REFERENCES users(user_id),
+    title varchar(50) not null
+    description varchar(2000)
+    priority int not null,
+    status varchar(10) not null
+)
+
+alter table task
+ADD CONSTRAINT check_status
+CHECK (status IN ('PENDING', 'INPROGRESS', 'COMPLETED'));
+
+alter table task
+ADD CONSTRAINT check_priority
+CHECK (status IN (0, 1, 2));
